@@ -2,11 +2,12 @@ from flask import Flask, render_template, redirect, url_for, request
 from sqlalchemy import text
 from config_db import db
 from models import Produto
-
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://marcelopostgresuser:73$Rps@localhost/compras"
 db.init_app(app)
+migrate = Migrate(app,db)
 
 with app.app_context():
     db.create_all()
