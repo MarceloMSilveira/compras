@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All products</title>
+</head>
+<body>
+    <h1>Lista dos produtos cadastrados:</h1>
+    <ul>All Products:
+        {% for produto in produtos %}
+            <li>{{produto.nome}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <form action="addNewProd">
+        <fieldset>
+            <legend> Add area:</legend>
+            <label for="">Nome:</label>
+            <input type="text" name="prod_nome">
+            <br>
+            <label for="">Quantidade:</label>
+            <input type="text" name="qtd">
+            <input type="submit">
+        </fieldset>
+    </form>
+    <br>
+    <form id="del-form" action="delete">
+        <fieldset>
+            <legend> Delete area:</legend>
+            <label for="prod-to-delete">Prod to del: </label>
+            <input type="text" id="prod-to-delete" name="produto">
+            <input type="submit">
+        </fieldset>
+    </form>
+    <br>
+    <form action="update">
+        <fieldset>
+            <legend> Update area:</legend>
+            <label for="">Nome atual:</label>
+            <input type="text" name="nome_atual">
+            <br>
+            <label for="">Novo nome:</label>
+            <input type="text" name="novo_nome">
+            <input type="submit">
+        </fieldset>
+    </form>
+    
+</body>
+</html>
